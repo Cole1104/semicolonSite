@@ -4,7 +4,9 @@ import styles from '../app/chat.module.css'
 
 import { io } from "socket.io-client";
 import MessageBox from "./MessageBox";
+import { Jua } from 'next/font/google'
 
+const inter = Jua({ subsets: ['latin'] ,weight:'400'})
 import Router from "next/router";
 import Navi from "./Navi";
 
@@ -12,7 +14,6 @@ export const ioC = io('http://localhost:3001',{
     autoConnect: false
 })
 export default function Chatpage(){
-
     const [chatLog, setChatLog] = useState([
         {
             sender:"system",
@@ -22,6 +23,11 @@ export default function Chatpage(){
     ])
 
     const [matchedRoom,setMatchedRoom] = useState('');
+    
+
+    
+
+
 
     useEffect(()=>{
        if(localStorage.getItem('isLogin') == 'false'){
@@ -95,6 +101,7 @@ export default function Chatpage(){
 
     return(
     <>
+    <div className={inter.className}>
     <Navi/>
 
     <div className=" py-24  h-screen overflow-scroll" ref={bodyRef}>
@@ -116,13 +123,18 @@ export default function Chatpage(){
     )}
 
     
-    <div className=" fixed bottom-0">
-        <form onSubmit={handleSubmit}>
-            <input type='textarea' ref={reff}></input>
-            <button>보내기</button>
+    <div className=" fixed bottom-0 w-screen h-16 bg-slate-600">
+        <form onSubmit={handleSubmit} className=" flex justify-center">
+            <input type='textarea' ref={reff} className=" rounded-xl  justify-center w-3/4 m-2 text-3xl"></input>
+            <button className="bg-white p-3  rounded-full ">
+            <svg class="w-10 h-10 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+            </svg>
+            </button>
         </form>
     </div>
 
+    </div>
     </div>
     </>
     )

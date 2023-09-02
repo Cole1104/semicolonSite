@@ -3,7 +3,9 @@
 import { GoogleLogin,LogOut,authh,getUserInfo } from "@/app/api/fbase";
 import { useEffect, useState } from "react";
 import Navi from "./Navi";
+import { Jua } from 'next/font/google'
 
+const inter = Jua({ subsets: ['latin'] ,weight:'400'})
 
 
 
@@ -22,7 +24,7 @@ function Front() {
    if(frontLoginStatus == 'true'){
 
     return(
-    <>
+    <div className={inter.className}>
     <Navi/>
     <div className="pt-20 flex justify-center items-center h-screen">
     <div className=" grid grid-rows-2">
@@ -30,11 +32,11 @@ function Front() {
     <button onClick={LogOut} className=" bg-slate-300">log out</button>
     </div>
     </div>
-    </>
+    </div>
     )
    }else{
     return(
-        <>
+        <div className={inter.className}>
         <Navi/>
         <div className="pt-20 flex justify-center items-center h-screen">
             <div className=" grid grid-rows-2">
@@ -43,7 +45,7 @@ function Front() {
             <button onClick={GoogleLogin} className=" bg-slate-300 p-5 rounded-lg ">로그인</button>
             </div>
         </div>
-        </>
+        </div>
         )
     }
 

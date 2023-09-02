@@ -5,8 +5,8 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const ioS = new Server(server,{
   cors:{
-    //origin:"http://192.168.0.10:3000"
-    origin:"https://semicolon-site.vercel.app"
+    //origin:"http://localhost:3000"
+    origin:"https://clubwebsite.vercel.app/"
   }
 });
 let userList = [];

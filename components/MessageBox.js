@@ -56,13 +56,13 @@ function MessageBox(props){
         float:MessageBoxStyleFloat,
         overflow:'hidden'}}>
     <h5>{props.sender}</h5>
-    {props.message}
+    <span className=" text-2xl">{props.message}</span>
 
     {props.type == 'rejoin' || props.type == 'join' ? 
     <div>
-    <form style={hide} onSubmit={hideExcludedButton}>
-    <button className="mx-2 bg-white p-2 rounded-lg" onClick={connect}>yes</button>
-    <button className="mx-2 bg-gray-600 p-2 rounded-lg" onClick={goToMainPage}>no</button>
+    <form style={hide} onSubmit={hideExcludedButton} className="p-3 grid grid-cols-2">
+    <button className="mx-2 bg-white p-1 rounded-lg  text-2xl" onClick={connect}>yes</button>
+    <button className="mx-2 bg-gray-600 p-1 rounded-lg  text-2xl text-white" onClick={goToMainPage}>no</button>
     </form>
     </div>
     : null}
