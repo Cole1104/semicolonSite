@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.Main{
+    
+}
+.Random{
+    writing-mode: vertical-lr;
+}
+*{
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(241 245 249);
+}
+.messageBoxtruesomeone,
+.messageBoxtruesystem{
+    animation-duration: 1s;
+    animation-name: slidetoRight;
+    
+    
+    animation-delay: 0ms;
+}
+
+.messageBoxtrueme{
+    animation-duration: 1s;
+    animation-name: slidetoLeft;
+    
+    animation-delay: 0ms;
+    
+}
+
+@keyframes slidetoRight{
+    0%{
+        opacity: 0.5;
+        transform: translateX(-70%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+@keyframes slidetoLeft{
+    0%{
+        opacity: 0.5;
+        transform: translateX(70%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
